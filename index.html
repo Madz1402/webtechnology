@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Intern Review System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .profile-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .nav-link:hover {
+      background-color: #ffc107;
+      color: black !important;
+      border-radius: 5px;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    .badge-online {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      background-color: #28a745;
+      border-radius: 50%;
+      border: 2px solid white;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light border-bottom" style="background-color:#b2a7dd;">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center text-dark fw-bold" href="#">
+      <img src="images/edge.png" alt="Logo" width="100" height="70" class="me-2">
+      Intern Review System
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto me-3">
+        <li class="nav-item"><a class="nav-link text-dark" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="eval.html">Evaluation</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="eval1.html">Review</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">Feedback</a></li>
+      </ul>
+
+      <!-- Profile Dropdown -->
+      <div class="dropdown">
+        <a class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" href="#" id="dropdownProfile"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="position-relative me-2">
+            <img src="images/candidate.png" alt="Profile" class="rounded-circle" width="60" height="60">
+            <span class="badge-online"></span>
+          </div>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end text-center p-3 shadow" aria-labelledby="dropdownProfile">
+          <li><img src="images/candidate.png" alt="Candidate" class="profile-img mb-2"></li>
+          <li><strong>Rahul Dharma</strong></li>
+          <li class="text-muted mb-2">Web Development Intern</li>
+          <li><hr class="dropdown-divider"></li>
+          <li><button class="btn btn-outline-danger btn-sm w-100" onclick="window.location.href='login2.html'">Logout</button>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5">
+  <div class="row justify-content-center align-items-center g-4">
+
+    <!-- Left Image with padding and soft styling -->
+    <div class="col-md-4 text-center">
+      <div class="p-3">
+        <img src="images/welcome.png" style="max-width: 400px;" alt="Intern Image">
+      </div>
+    </div>
+
+    <!-- Right Side Alert Box in Card Style -->
+    <div class="col-md-7">
+      <div class="p-4 rounded-4 shadow" style="background-color: #e6ddfa; color: #3b2775;">
+        <h4 class="fw-bold mb-3">
+          <i class="bi bi-check-circle-fill me-2"></i>Well done!
+        </h4>
+        <p class="mb-2">
+          <i class="bi bi-info-circle-fill me-2"></i>You successfully read this important alert message. This example text gives you an idea of how spacing inside an alert works when content is more descriptive.
+        </p>
+        <hr>
+        <p class="mb-0">
+          <i class="bi bi-lightbulb-fill me-2"></i>Remember to use Bootstrap spacing utilities to keep things tidy and neat!
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr style="border: 9px solid #363539;">
+<div class="container-fluid px-5 mb-5">
+  <div id="textCarousel" class="carousel slide shadow rounded-4 overflow-hidden" data-bs-ride="carousel" data-bs-interval="5000" style="min-height: 250px; background-color: #f3eaff;">
+    
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#textCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#textCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#textCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner text-center py-4 px-4">
+
+      <!-- Slide 1: Dashboard -->
+      <div class="carousel-item active">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center bg-transparent mb-2">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">Dashboard</li>
+          </ol>
+        </nav>
+        <h5 class="fw-bold text-dark"><i class="bi bi-speedometer2 me-2 text-primary"></i>Intern Dashboard</h5>
+        <p class="text-secondary mb-1">
+          Access your daily and weekly task lists, deadlines, and progress graphs. Stay updated with important announcements and milestones.
+        </p>
+        <p class="text-secondary mb-0">
+          Use this space to monitor your attendance, connect with mentors, and track your KPIs in one place.
+        </p>
+      </div>
+
+      <!-- Slide 2: Evaluation -->
+      <div class="carousel-item">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center bg-transparent mb-2">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">Evaluation</li>
+          </ol>
+        </nav>
+        <h5 class="fw-bold text-dark"><i class="bi bi-clipboard-check-fill me-2 text-success"></i>Performance Evaluation</h5>
+        <p class="text-secondary mb-1">
+          Submit weekly evaluations, project updates, and self-reflections. View ratings and constructive feedback from mentors.
+        </p>
+        <p class="text-secondary mb-0">
+          Evaluation criteria include punctuality, technical skills, communication, teamwork, and innovation.
+        </p>
+      </div>
+
+      <!-- Slide 3: Final Review -->
+      <div class="carousel-item">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center bg-transparent mb-2">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">Review</li>
+          </ol>
+        </nav>
+        <h5 class="fw-bold text-dark"><i class="bi bi-chat-left-text-fill me-2 text-purple"></i>Final Review & Feedback</h5>
+        <p class="text-secondary mb-1">
+          Get a detailed summary of your internship performance, learning outcomes, and mentor reviews.
+        </p>
+        <p class="text-secondary mb-0">
+          Understand your strengths, areas for improvement, and steps to continue growing professionally.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#textCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#textCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-secondary rounded-circle p-2" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<footer class="text-white pt-5" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #b2a7dd;">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <!-- Contact Us -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Contact Us</h5>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-envelope-fill me-2"></i>internsupport@example.com</li>
+          <li><i class="bi bi-telephone-fill me-2"></i>+91 98765 43210</li>
+          <li><i class="bi bi-geo-alt-fill me-2"></i>Chennai, Tamil Nadu</li>
+        </ul>
+      </div>
+
+      <!-- About Us & Sponsor -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">About Us</h5>
+        <p class="small">We provide an intern evaluation and feedback platform designed to track performance, manage reviews, and improve learning outcomes.</p>
+        <h6 class="fw-bold mt-3">Sponsors</h6>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-building me-2"></i>Zoho Corporation</li>
+          <li><i class="bi bi-building me-2"></i>Wipro</li>
+          <li><i class="bi bi-building me-2"></i>EY India</li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Follow Us</h5>
+        <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-4">
+          <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-google"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="border-light">
+
+    <div class="text-center pb-3 small">
+      © 2025 Intern Review System. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Intern Profile & Review Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(to right, #e4d0ff, #b38bfc);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .logo {
+      height: 80px;
+      margin: 30px;
+      object-fit: contain;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0 60px;
+      flex-wrap: wrap;
+    }
+
+    .profile-card {
+      width: 340px;
+      background-color: #4B0082;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+      color: white;
+      padding-top: 90px;
+      padding-bottom: 40px;
+      padding-left: 25px;
+      padding-right: 25px;
+      margin-top: 20px;
+      transition: all 0.4s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.3), 0 0 12px #D8B4F8;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #D8B4F8;
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #d8b4f86a;
+      margin: 12px 0;
+    }
+
+    .calendar-box {
+      background: #f9f1ff;
+      border-radius: 16px;
+      padding: 25px 20px;
+      margin-top: 40px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      max-width: 360px;
+      width: 100%;
+    }
+
+    .calendar-box h5 {
+      color: #4B0082;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .calendar th,
+    .calendar td {
+      width: 44px;
+      height: 44px;
+      text-align: center;
+      vertical-align: middle;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s ease;
+      background-color: #dec8f5;
+      color: #4B0082;
+      font-weight: 500;
+      border: none;
+    }
+
+    .calendar td:hover {
+      background-color: #d1b3f0;
+    }
+
+    .calendar .marked {
+      background-color: #6a0dad !important;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 0 10px #c89cfb;
+    }
+
+    .bs-popover-auto[data-popper-placement^="top"] .popover-arrow::before,
+    .bs-popover-top .popover-arrow::before {
+      border-top-color: #4B0082 !important;
+    }
+
+    .popover {
+      background-color: #4B0082 !important;
+      color: white;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    .popover-header {
+      background-color: #4B0082;
+      color: #fff;
+      border-bottom: 1px solid #d8b4f8;
+    }
+
+    .popover-body {
+      color: white;
+    }
+
+    .chart-box {
+      background-color: #f9f1ff;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-top: 40px;
+      width: 280px;
+    }
+
+    @media (max-width: 992px) {
+      .main-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 30px;
+      }
+
+      .calendar-box {
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <img src="edge.png" alt="Company Logo" class="logo">
+
+  <!-- Main Container -->
+  <div class="main-container">
+
+    <!-- Profile + Ratio Chart -->
+    <div class="d-flex align-items-start gap-4 flex-wrap">
+      <!-- Profile Card -->
+      <div class="profile-card">
+        <img src="pro.png" alt="Intern Image" class="profile-img">
+        <div class="mt-3 text-start">
+          <div class="fw-bold fs-4">Maras Faron</div>
+          <div class="text-light mb-3">Full Stack Developer Intern</div>
+          <div class="divider"></div>
+          <p><i class="bi bi-telephone-fill text-light me-2"></i>+91 9876543210</p>
+          <p><i class="bi bi-envelope-fill text-light me-2"></i>maras@example.com</p>
+          <p><i class="bi bi-geo-alt-fill text-light me-2"></i>Chennai, India</p>
+          <div class="divider"></div>
+          <p><i class="bi bi-calendar-event-fill text-light me-2"></i>Duration: Jan 2025 - Jul 2025</p>
+          <p><i class="bi bi-laptop text-light me-2"></i>Skills: React, Node, MongoDB</p>
+        </div>
+      </div>
+
+      <!-- Chart Box -->
+      <div>
+        <div class="chart-box">
+          <h6 class="text-center fw-bold" style="color:#4B0082;">Intern Evaluation</h6>
+          <canvas id="internChart" width="260" height="260"></canvas>
+        </div>
+
+        <!-- Horizontal Collapse Toggle -->
+        <p class="mt-3 text-center">
+          <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+            Show Evaluation Note
+          </button>
+        </p>
+
+        <div style="min-height: 120px;">
+          <div class="collapse collapse-horizontal" id="collapseWidthExample">
+            <div class="card card-body text-white" style="width: 300px; background-color: #6a0dad;">
+              This note summarizes intern collaboration and skill assessment.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendar -->
+    <div class="calendar-box">
+      <h5>Review Calendar</h5>
+      <table class="table calendar">
+        <thead>
+          <tr>
+            <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+            <th>Thu</th><th>Fri</th><th>Sat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+          </tr>
+          <tr>
+            <td>6</td><td>7</td><td>8</td><td>9</td>
+            <td class="marked" tabindex="0" role="button"
+                data-bs-toggle="popover" data-bs-placement="top"
+                title="Review Deadline"
+                data-bs-content="Final Review Due on 10th!">
+              10
+            </td>
+            <td>11</td><td>12</td>
+          </tr>
+          <tr>
+            <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+          </tr>
+          <tr>
+            <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS + Popover + Chart -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+    popoverTriggerList.forEach(el => new bootstrap.Popover(el));
+  </script>
+
+  <script>
+    const ctx = document.getElementById('internChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Technical Skills', 'Soft Skills', 'Projects', 'Punctuality'],
+        datasets: [{
+          label: 'Evaluation',
+          data: [35, 25, 25, 15],
+          backgroundColor: ['#9b59b6', '#d8b4f8', '#6a0dad', '#b38bfc'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        cutout: '60%',
+        plugins: {
+          legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+              color: '#4B0082',
+              font: {
+                size: 12,
+                weight: 'bold'
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
