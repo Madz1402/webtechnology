@@ -1,0 +1,355 @@
+MongoDB CRUD Operations
+
+
+1.create database
+
+<use production
+>switched to db production
+
+2.create collection
+
+db.createCollection("farmers")
+db.createCollection("crops")
+db.createCollection("market_sales")
+
+3.Insert documents in farmers collection
+
+db.farmers.insertMany([
+  {
+    farmer_id: "F001",
+    name: "Ramesh Kumar",
+    age: 45,
+    gender: "Male",
+    village: "Theni",
+    land_size_acres: 3.5,
+    organic: true,
+    contact: "9876543210"
+  },
+  {
+    farmer_id: "F002",
+    name: "Lakshmi Devi",
+    age: 38,
+    gender: "Female",
+    village: "Erode",
+    land_size_acres: 2.0,
+    organic: false,
+    contact: "9823412678"
+  },
+  {
+    farmer_id: "F003",
+    name: "Selva Raj",
+    age: 50,
+    gender: "Male",
+    village: "Namakkal",
+    land_size_acres: 5.0,
+    organic: true,
+    contact: "9812345678"
+  },
+  {
+    farmer_id: "F004",
+    name: "Meena Kandasamy",
+    age: 29,
+    gender: "Female",
+    village: "Karur",
+    land_size_acres: 1.2,
+    organic: false,
+    contact: "9865432190"
+  },
+  {
+    farmer_id: "F005",
+    name: "Arun Prakash",
+    age: 41,
+    gender: "Male",
+    village: "Salem",
+    land_size_acres: 3.0,
+    organic: true,
+    contact: "9876567890"
+  }
+])
+ 
+3.insert document in crops
+ db.crops.insertMany([
+  {
+    crop_id: "C001",
+    farmer_id: "F001",
+    crop_name: "Tomato",
+    quantity_kg: 150,
+    season: "Summer"
+  },
+  {
+    crop_id: "C002",
+    farmer_id: "F002",
+    crop_name: "Chilli",
+    quantity_kg: 100,
+    season: "Winter"
+  },
+   {
+    crop_id: "C003",
+    farmer_id: "F003",
+    crop_name: "Brinjal",
+    quantity_kg: 80,
+    season: "Monsoon"
+  },
+  {
+    crop_id: "C004",
+    farmer_id: "F001",
+    crop_name: "Cabbage",
+    quantity_kg: 120,
+    season: "Winter"
+  },
+  {
+    crop_id: "C005",
+    farmer_id: "F004",
+    crop_name: "Carrot",
+    quantity_kg: 90,
+    season: "Winter"
+  },
+  {
+    crop_id: "C006",
+    farmer_id: "F002",
+    crop_name: "Potato",
+    quantity_kg: 200,
+    season: "Summer"
+  },
+  {
+    crop_id: "C007",
+    farmer_id: "F003",
+    crop_name: "Onion",
+    quantity_kg: 160,
+    season: "Monsoon"
+  },
+  {
+    crop_id: "C008",
+    farmer_id: "F005",
+    crop_name: "Beetroot",
+    quantity_kg: 75,
+    season: "Spring"
+  }
+
+ 
+])
+
+db.crops.insertMany([
+  {
+    crop_id: "C003",
+    farmer_id: "F003",
+    crop_name: "Brinjal",
+    quantity_kg: 80,
+    season: "Monsoon"
+  },
+  {
+    crop_id: "C004",
+    farmer_id: "F001",
+    crop_name: "Cabbage",
+    quantity_kg: 120,
+    season: "Winter"
+  },
+  {
+    crop_id: "C005",
+    farmer_id: "F004",
+    crop_name: "Carrot",
+    quantity_kg: 90,
+    season: "Winter"
+  },
+  {
+    crop_id: "C006",
+    farmer_id: "F002",
+    crop_name: "Potato",
+    quantity_kg: 200,
+    season: "Summer"
+  },
+  {
+    crop_id: "C007",
+    farmer_id: "F003",
+    crop_name: "Onion",
+    quantity_kg: 160,
+    season: "Monsoon"
+  },
+  {
+    crop_id: "C008",
+    farmer_id: "F005",
+    crop_name: "Beetroot",
+    quantity_kg: 75,
+    season: "Spring"
+  }
+])
+
+
+
+4.insert document in market sales
+
+db.market_sales.insertMany([
+  {
+    sale_id: "S001",
+    crop_id: "C001",
+    date: "2025-07-17",
+    price_per_kg: 20,
+    quantity_sold_kg: 50
+  },
+  {
+    sale_id: "S002",
+    crop_id: "C002",
+    date: "2025-07-17",
+    price_per_kg: 35,
+    quantity_sold_kg: 30
+  },
+  {
+    sale_id: "S003",
+    cre: "2025-07-16",
+    price_pop_id: "C003",
+    dater_kg: 25,
+    quantity_sold_kg: 60
+  },
+  {
+    sale_id: "S004",
+    crop_id: "C001",
+    date: "2025-07-15",
+    price_per_kg: 22,
+    quantity_sold_kg: 45
+  },
+  {
+    sale_id: "S005",
+    crop_id: "C004",
+    date: "2025-07-14",
+    price_per_kg: 40,
+    quantity_sold_kg: 20
+  },
+  {
+    sale_id: "S006",
+    crop_id: "C002",
+    date: "2025-07-13",
+    price_per_kg: 34,
+    quantity_sold_kg: 38
+  },
+  {
+    sale_id: "S007",
+    crop_id: "C005",
+    date: "2025-07-12",
+    price_per_kg: 18,
+    quantity_sold_kg: 80
+  },
+  {
+    sale_id: "S008",
+    crop_id: "C003",
+    date: "2025-07-11",
+    price_per_kg: 26,
+    quantity_sold_kg: 55
+  }
+])
+
+5.show command
+
+database
+
+<show databases
+>admin        40.00 KiB
+config      108.00 KiB
+local        40.00 KiB
+production  184.00 Ki
+ 
+collections
+
+<show collections
+>crops
+farmers
+market_sales
+
+6.Find operation
+
+$or – Find crops grown in Winter or crops with quantity more than 100kg
+
+db.crops.find({$or: [{ season: "Winter" },{ quantity_kg: { $gt: 100 } }]})
+
+$and – Find crops grown by F002 and quantity more than 80kg
+
+db.crops.find({$and: [{ farmer_id: "F002" },{ quantity_kg: { $gt: 80 } }]})
+
+$lt – Find crops with quantity less than 100kg
+
+db.crops.find({ quantity_kg: { $lt: 100 } })
+
+$lte – Find crops with quantity less than or equal to 90kg
+db.crops.find({ quantity_kg: { $lte: 90 } })
+
+$gt – Find crops with quantity more than 150kg
+
+db.crops.find({ quantity_kg: { $gt: 150 } })
+
+$gte – Find crops with quantity ≥ 120kg
+
+db.crops.find({ quantity_kg: { $gte: 120 } })
+
+$eq – Find crops with exactly 100kg
+
+db.crops.find({ quantity_kg: { $eq: 100 } })
+ 
+
+7.Update operation
+
+Increment the quantity_sold_kg of a specific sale:
+
+db.market_sales.updateOne({ sale_id: "S001" },{ $inc: { quantity_sold_kg: 10 } })
+
+Add a new field buyer_name to all sales using $set:
+
+db.market_sales.updateMany({},{ $set: { buyer_name: "Local Vendor" }})
+
+Addition
+
+db.market_sales.aggregate([{$addFields: {total_value: { $add: ["$quantity_sold_kg", "$price_per_kg"] }}}])
+
+multiplication
+
+db.market_sales.aggregate([{$addFields: {total_sales_amount: { $multiply: ["$quantity_sold_kg", "$price_per_kg"] }}}])
+
+replace 
+
+db.market_sales.replaceOne(
+  { sale_id: "S001" },
+  {
+    sale_id: "S001",
+    crop_id: "C001",
+    date: "2025-07-17",
+    price_per_kg: 25,
+    quantity_sold_kg: 60,
+    status: "updated"
+  }
+)
+
+
+8. Delete One Document
+
+db.farmer.deleteOne({ farmer_id: "F001" })
+
+
+9.Delete Multiple Documents
+
+db.farmer.deleteMany({ location: "Salem" })
+
+10.Delete All Documents
+
+db.farmer.deleteMany({})
+
+
+11. Drop the Collection
+
+db.farmer.drop()
+
+use production
+db.dropDatabase()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
